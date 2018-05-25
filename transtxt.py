@@ -10,6 +10,8 @@ def generate(dir):
   for file in files:
      fileType = os.path.splitext(file)
      # fileType = os.path.split(file)
+     # os.rename("test", "test2")
+     # imgdst = dst + str(p).zfill(4) + '.jpg'
      if fileType[1] == '.txt':
          continue
      name = fileType[0] +'\n'

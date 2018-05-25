@@ -4,24 +4,29 @@ import re
 import cv2
 import sys
 #the source folder that you will read the .jpg and .xml from
-src0='/home/asus/car'
+src0='/home/asus/project/test/samp/'
 #the destation folder that you will save the .jpg files and .txt files, which are rename and transformed
-dst0='/home/asus/car_voc'
+dst0='/home/asus/project/test/des/'
 #the num of the class that your cutting picture described in your .xml file belong to
 voc_name0='/home/asus/project/darknet/data/voc.names'
 if __name__=='__main__':
-    if len(sys.argv)<4:
-        print('yolo-voc program need 5 argv.you must input command like\n   python 123.py [start_num] [source folder name] [deststion folder name] [voc name file]')
-    else:
-        p=int(sys.argv[1])
-        src=sys.argv[2]+'/'
-        dst=sys.argv[3]+'/'
-        if len(sys.argv)>4:
-            voc_name=sys.argv[4]
-            voc_flag=True
-        else:
-            voc_name=''
-            voc_flag=False
+        src = src0
+        dst = dst0
+        voc_name = voc_name0
+        voc_flag = True
+    # if len(sys.argv)<4:
+    #     # print sys.argv,len(sys.argv)
+    #     print('yolo-voc program need 5 argv.you must input command like\n   python 123.py [start_num] [source folder name] [deststion folder name] [voc name file]')
+    # else:
+    #     p=int(sys.argv[1])
+    #     src=sys.argv[2]+'/'
+    #     dst=sys.argv[3]+'/'
+    #     if len(sys.argv)>4:
+    #         voc_name=sys.argv[4]
+    #         voc_flag=True
+    #     else:
+    #         voc_name=''
+    #         voc_flag=False
         '''src=input('please input the path of source:\n')
         if src=='':
             src=src0
@@ -69,7 +74,7 @@ if __name__=='__main__':
                 index = listname.index(name)
             else:
                 index = 0
-            txtname0 = dst + str(p).zfill(4) + '.txt'
+            txtname0 = dst + str(p).zfill(6) + '.txt'
             f = open(txtname0, 'w')
             width=int(re.findall(wwidth,i_content)[0])
             height=int(re.findall(hheight,i_content)[0])
@@ -100,7 +105,13 @@ if __name__=='__main__':
             if img is None:
                 imgname0 = imgname0.replace('JPG', 'png')
                 img = cv2.imread(imgname0)
-            imgdst=dst+str(p).zfill(4)+'.jpg'
+            imgdst=dst+str(p).zfill(6)+'.jpg'
             #imgname1 = imgdst.replace('xml', 'jpg')
             cv2.imwrite(imgdst,img)
+            fileType = os.path.splitext(i)
+            if fileType[1] == '.xml':
+                Olddir = os.path.join(src, i);  # 原来的文件路径
+                filetype = os.path.splitext(i)[1];  # 文件扩展名
+                Newdir = os.path.join(src, str(p).zfill(6) + filetype);  # 新的文件路径
+                os.rename(Olddir, Newdir)  # 重命名
             p+=1

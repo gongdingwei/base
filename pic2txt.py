@@ -1,7 +1,7 @@
 import os
 import re
 import sys
-src='/home/asus/car-voc'
+src='~/project/faster/Faster-RCNN_TF/mine/voc'
 path='/home/VOCdevkit/voc1'
 if __name__=='__main__':
     if len(sys.argv)<2:
