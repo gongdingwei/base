@@ -20,4 +20,4 @@ def generate(dir):
 
 
 if __name__ == '__main__':
-     generate('./voc')
+     generate('./pic')

@@ -1,0 +1,26 @@
+<annotation>
+	<folder>image</folder>
+	<filename>854.jpg</filename>
+	<path>/home/asus/labelImg/image/854.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1920</width>
+		<height>1080</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>speed vector</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>903</xmin>
+			<ymin>593</ymin>
+			<xmax>1045</xmax>
+			<ymax>662</ymax>
+		</bndbox>
+	</object>
+</annotation>

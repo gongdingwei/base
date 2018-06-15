@@ -63,6 +63,7 @@ if __name__=='__main__':
             f.close()
 
         p=0
+        # print listdir
         for i in listdir:
             i_file=open(src+i,'r')
             i_content=i_file.read()
